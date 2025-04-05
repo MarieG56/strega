@@ -1,0 +1,22 @@
+#root {
+    margin: 0;
+    padding: 0;
+}
+
+.beige {
+    background-color: #f5ece5;
+}
+
+body {
+    font-family: "Quicksand", sans-serif;
+}
+
+.logo_name {
+    font-family: "slopes", sans-serif;
+    color: #7d5e19;
+    align-self: center;
+}
+
+.gold {
+    color: #7d5e19;
+}
