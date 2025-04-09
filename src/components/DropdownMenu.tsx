@@ -1,10 +1,11 @@
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function DropdownMenu() {
     const [isOpen, setIsOpen] = useState(false);
+    const location = useLocation();
 
     const toggleMenu = () => setIsOpen((prev) => !prev); //Open the menu
 
@@ -13,9 +14,13 @@ export default function DropdownMenu() {
         setIsOpen(false);
     }; //Close the menu
 
+    const isActiveLink = (...paths: string[]) => {
+        return paths.includes(location.pathname) ? "font-bold" : "";
+    };
+
     return (
         <div className="relative" onClick={toggleMenu}>
-            <div className="gold hover:underline cursor-pointer flex items-center gap-1 text-base">
+            <div className={`gold hover:underline cursor-pointer flex items-center gap-1 text-base ${isActiveLink("/waxing","/eyes", "/nails", "/makeup", "/massage")}`}>
                 Prestations et tarifs
                 <ChevronDownIcon
                     className={`h-3 w-3 transition-transform ${

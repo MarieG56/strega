@@ -1,16 +1,11 @@
-import {
-    Card,
-    Input,
-    Button,
-    Typography,
-} from "@material-tailwind/react";
+import { Card, Input, Button, Typography } from "@material-tailwind/react";
 import React from "react";
 
 export function ContactForm() {
     return (
         <>
             <Card
-                className="flex flex-col items-center mt-6 md:mt-10"
+                className="flex flex-col items-center mt-8 md:mt-10"
                 color="transparent"
                 shadow={false}
             >
@@ -21,7 +16,7 @@ export function ContactForm() {
                 >
                     Ecrivez-moi
                 </Typography>
-                <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96 md:w-120">
+                <form className="mt-8 w-80 max-w-screen-lg sm:w-96 md:w-120">
                     <div className="mb-1 flex flex-col gap-6">
                         <Typography
                             variant="h6"
@@ -92,27 +87,13 @@ export function ContactForm() {
                     </div>
 
                     <Button
-                        className="mt-6 p-3 beige rounded-[20px] text-[#7D5E19] text-lg w-50 m-auto"
+                        className="mt-6 p-3 beige rounded-[20px] text-[#7D5E19] text-lg w-50 m-auto shadow-none"
                         fullWidth
                     >
                         Envoyer
                     </Button>
                 </form>
             </Card>
-            <div className="mt-6 flex flex-col gap-4 text-center px-7 text-base md:text-xl md:px-50">
-                <p>
-                    Vous pouvez également m’envoyer un message ou m’appeler au{" "}
-                    <span className="font-semibold">06 65 32 12 77</span>, ou
-                    encore m’écrire un mail à{" "}
-                    <span className="font-semibold">stregabysoa@gmail.com</span>
-                    .
-                </p>
-                <p>
-                    Enfin, n’hésitez pas à me suivre sur mes réseaux sociaux (
-                    <span className="font-semibold">Instagram, Facebook</span>)
-                    pour connaître l’actualité du salon.
-                </p>
-            </div>
         </>
     );
 }

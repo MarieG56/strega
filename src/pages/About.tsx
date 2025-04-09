@@ -3,7 +3,7 @@ import profile from '../assets/soazig.jpg';
 
 export default function About() {
     return (
-        <div className="md:max-h-screen md:mt-16 flex flex-col md:grid md:grid-cols-8 md:gap-6 items-center justify-center overflow-hidden px-5 md:px-0">
+        <div className="md:max-h-screen md:mt-16 flex flex-col md:grid md:grid-cols-8 md:gap-6 items-center justify-center overflow-hidden px-5 mb-10 md:px-0">
             {/* Empty space on the left */}
             <div className="hidden md:block md:col-span-1"></div>
 

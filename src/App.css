@@ -17,6 +17,11 @@ body {
     align-self: center;
 }
 
-.gold {
-    color: #7d5e19;
+.custom-swiper .swiper-pagination-bullet-active {
+    background-color: #7d5e19;
+    opacity: 0.7;
+}
+
+.poiret {
+    font-family: "Poiret One", sans-serif;
 }

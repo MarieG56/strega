@@ -4,14 +4,14 @@ module.exports = withMT({
     content: [
         "./index.html",
         "./src/**/*.{vue,js,ts,jsx,tsx}",
-        "path-to-your-node_modules/@material-tailwind/react/components/**/*.{js,ts,jsx,tsx}",
-        "path-to-your-node_modules/@material-tailwind/react/theme/components/**/*.{js,ts,jsx,tsx}",
+        "./**/@material-tailwind/**/*.{html,js,ts,jsx,tsx,mdx}"
       ],
     theme: {
         extend: {
             fontFamily: {
                 quicksand: ["Quicksand", "sans-serif"],
                 slopes: ["slopes", "sans-serif"],
+                poiret: ["poiret", "sans-serif"]
             },
             colors: {
                 Sgold: {

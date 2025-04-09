@@ -1,5 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
 import About from "./pages/About";
 import Waxing from "./pages/Services/Waxing";
 import Eyes from "./pages/Services/Eyes";
@@ -13,6 +12,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import "./App.css";
 import { FaServicestack } from "react-icons/fa6";
+import Home from "./pages/Home";
+import Services from "./pages/Services";
 
 function App() {
     return (
@@ -21,9 +22,10 @@ function App() {
 
             <main className="flex-grow">
                 <Routes>
+                    <Route path="/" element={<Home />} />
                     <Route path="home" element={<Home />} />
                     <Route path="about" element={<About />} />
-                    <Route path="services" element={<FaServicestack />} />
+                    <Route path="services" element={<Services />} />
                     <Route path="waxing" element={<Waxing />} />
                     <Route path="eyes" element={<Eyes />} />
                     <Route path="nails" element={<Nails />} />

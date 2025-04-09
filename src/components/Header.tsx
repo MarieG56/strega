@@ -1,18 +1,23 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from '../assets/logo_without_name.png';
 import { FaBars, FaTimes } from "react-icons/fa";
 import DropdownMenu from "./DropdownMenu"; // Import du composant DropdownMenu
 
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
+    const location = useLocation();
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     };
 
     const closeMenu = () => {
-        setMenuOpen(false); // Ferme le menu
+        setMenuOpen(false); 
+    };
+
+    const getLinkClass = (path) => {
+        return location.pathname === path ? "text-base hover:underline font-bold" : "text-base hover:underline";
     };
 
     return (
@@ -30,12 +35,12 @@ export default function Header() {
                     </Link>
                 </div>
 
-                {/* "Strega" centré */}
+                {/* "Strega" */}
                 <div className="text-center text-3xl logo_name flex items-center justify-center h-full">
                     Strega
                 </div>
 
-                {/* Menu Burger */}
+                {/* Menu */}
                 <div className="flex justify-end items-center h-full">
                     <button onClick={toggleMenu} className="text-[#7D5E19]">
                         {menuOpen ? <FaTimes size={25} /> : <FaBars size={25} />}
@@ -45,7 +50,7 @@ export default function Header() {
 
             {/* Desktop layout: Flex */}
             <div className="hidden md:flex items-center justify-between h-full">
-                {/* Logo + Nom */}
+                {/* Logo + Name */}
                 <div className="flex items-center gap-4">
                     <Link to="/home">
                         <img
@@ -59,20 +64,20 @@ export default function Header() {
                     </div>
                 </div>
 
-                {/* Navbar avec DropdownMenu */}
-                <nav className="flex items-center gap-6">
-                    <Link to="/home" className="gold text-base hover:underline">
+                {/* Navbar with DropdownMenu */}
+                <nav className="flex items-center gap-6 text-[#7D5E19]">
+                    <Link to="/home" className={getLinkClass("/home")}>
                         Accueil
                     </Link>
-                    <Link to="/about" className="gold text-base hover:underline">
+                    <Link to="/about" className={getLinkClass("/about")}>
                         A propos
                     </Link>
-                    {/* Dropdown Menu pour Prestations et tarifs */}
+                    {/* Dropdown Menu */}
                     <DropdownMenu />
-                    <Link to="/gallery" className="gold text-base hover:underline">
+                    <Link to="/gallery" className={getLinkClass("/gallery")}>
                         Galerie
                     </Link>
-                    <Link to="/contact" className="gold text-base hover:underline">
+                    <Link to="/contact" className={getLinkClass("/contact")}>
                         Contact
                     </Link>
                 </nav>
@@ -81,7 +86,7 @@ export default function Header() {
             {/* Navbar Mobile */}
             {menuOpen && (
                 <nav
-                    className={`flex flex-col items-center gap-6 absolute top-full left-0 right-0 bg-white z-50 py-4 md:hidden`}
+                    className={`flex flex-col items-center gap-6 absolute top-full left-0 right-0 beige z-50 py-4 md:hidden`}
                 >
                     <Link to="/home" onClick={closeMenu} className="gold text-base hover:underline">
                         Accueil
