@@ -12,18 +12,25 @@ const center = {
 };
 
 export default function MapComponent() {
+  const googleMapsApiKey = import.meta.env.VITE_REACT_APP_GOOGLE_MAPS_API_KEY ?? '';
+
+  if (!googleMapsApiKey) {
+    return <div>Error: Google Maps API key is missing. Please check your environment variables.</div>;
+  }
+
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: import.meta.env.VITE_REACT_APP_GOOGLE_MAPS_API_KEY ?? '',
+    googleMapsApiKey,
   });
 
-  if (loadError) return <div>Error loading maps</div>;
-  if (!isLoaded) return <div>Loading Maps</div>;
+  if (loadError) return <div>Error loading maps. Please try again later.</div>;
+  if (!isLoaded) return <div>Loading Maps...</div>;
 
   return (
     <GoogleMap
       mapContainerStyle={mapContainerStyle}
       zoom={14}
       center={center}
+      aria-label="Google Map showing the location"
     >
       <Marker position={center} />
     </GoogleMap>

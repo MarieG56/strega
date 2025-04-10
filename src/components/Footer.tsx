@@ -3,6 +3,19 @@ import { FaInstagram, FaFacebook } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
+    const socialLinks = [
+        {
+            href: "https://www.instagram.com/stregabysoa/",
+            label: "Visit Instagram profile",
+            icon: <FaInstagram size={20} aria-hidden="true" />,
+        },
+        {
+            href: "https://www.facebook.com/profile.php?id=61563326601604",
+            label: "Visit Facebook profile",
+            icon: <FaFacebook size={20} aria-hidden="true" />,
+        },
+    ];
+
     return (
         <footer className="py-5 md:mt-10 border-t border-t-[#7D5E19]/50 w-full">
             {/* Main layout */}
@@ -31,22 +44,18 @@ export default function Footer() {
                     </span>
 
                     {/* Social media icons */}
-                    <Link
-                        to="https://www.instagram.com/stregabysoa/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#7D5E19]"
-                    >
-                        <FaInstagram size={20} />
-                    </Link>
-                    <Link
-                        to="https://www.facebook.com/profile.php?id=61563326601604"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#7D5E19]"
-                    >
-                        <FaFacebook size={20} />
-                    </Link>
+                    {socialLinks.map((link, index) => (
+                        <a
+                            key={index}
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={link.label}
+                            className="text-[#7D5E19] hover:text-[#5e4514]"
+                        >
+                            {link.icon}
+                        </a>
+                    ))}
                 </div>
             </div>
         </footer>

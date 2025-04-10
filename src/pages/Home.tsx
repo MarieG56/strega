@@ -19,34 +19,15 @@ import {
 import { Link } from "react-router-dom";
 import MapComponent from "../components/Map";
 
-export default function Home() {
-    const services = [
-        {
-            icon: (
-                <img src={WaxingIcon} alt="Epilation" className="h-12 w-12" />
-            ),
-            label: "Epilation",
-        },
-        {
-            icon: <img src={EyesIcon} alt="Regard" className="h-12 w-12" />,
-            label: "Regard",
-        },
-        {
-            icon: <img src={NailsIcon} alt="Ongles" className="h-12 w-12" />,
-            label: "Ongles",
-        },
-        {
-            icon: (
-                <img src={MakeupIcon} alt="Maquillage" className="h-12 w-12" />
-            ),
-            label: "Maquillage",
-        },
-        {
-            icon: <img src={MassageIcon} alt="Soins" className="h-12 w-12" />,
-            label: "Soins",
-        },
-    ];
+const services = [
+    { icon: WaxingIcon, label: "Epilation" },
+    { icon: EyesIcon, label: "Regard" },
+    { icon: NailsIcon, label: "Ongles" },
+    { icon: MakeupIcon, label: "Maquillage" },
+    { icon: MassageIcon, label: "Soins" },
+];
 
+export default function Home() {
     return (
         <div className="pt-4 md:px-4 md:py-8 mt-5">
             {/* Carousel */}
@@ -59,27 +40,18 @@ export default function Home() {
                     pagination={{ clickable: true }}
                     className="rounded-[20px] custom-swiper"
                 >
-                    <SwiperSlide>
-                        <img
-                            src="/assets/beautysalon1.jpg"
-                            className="w-130 md:max-h-[350px] h-[250px] object-cover mx-auto rounded-[20px]"
-                            alt="Slide 1"
-                        />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img
-                            src="/assets/eyes3.jpg"
-                            className="w-130 md:max-h-[350px] h-[250px] object-cover mx-auto rounded-[20px]"
-                            alt="Slide 2"
-                        />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img
-                            src="/assets/nails3.jpg"
-                            className="w-130 md:max-h-[350px] h-[250px] object-cover mx-auto rounded-[20px]"
-                            alt="Slide 3"
-                        />
-                    </SwiperSlide>
+                    {["beautysalon1.jpg", "eyes3.jpg", "nails3.jpg"].map(
+                        (image, index) => (
+                            <SwiperSlide key={index}>
+                                <img
+                                    src={`/assets/${image}`}
+                                    alt={`Slide ${index + 1}`}
+                                    className="w-130 md:max-h-[350px] h-[250px] object-cover mx-auto rounded-[20px]"
+                                    loading="lazy"
+                                />
+                            </SwiperSlide>
+                        )
+                    )}
                 </Swiper>
             </div>
 
@@ -89,11 +61,6 @@ export default function Home() {
                     className="relative p-8 inline-block md:hidden rounded-[20px] bg-cover bg-center mb-8"
                     style={{
                         backgroundImage: "url(/assets/paintbrush_mobile.svg)",
-                        backgroundSize: "contain",
-                        backgroundPosition: "center",
-                        backgroundRepeat: "no-repeat",
-                        maxWidth: "400px",
-                        width: "100%",
                     }}
                 >
                     <p className="text-lg text-black">
@@ -105,11 +72,6 @@ export default function Home() {
                     className="hidden md:flex justify-center text-center rounded-[20px] my-10"
                     style={{
                         backgroundImage: "url(/assets/paintbrush_desktop.svg)",
-                        backgroundSize: "contain",
-                        backgroundPosition: "center",
-                        backgroundRepeat: "no-repeat",
-                        maxWidth: "1200px",
-                        width: "100%",
                     }}
                 >
                     <p className="text-3xl max-w-[800px] text-black py-8">
@@ -128,9 +90,12 @@ export default function Home() {
                         key={index}
                         className="flex flex-col md:flex-row gap-2 items-center"
                     >
-                        <div className="text-4xl font-light text-[#7D5E19]">
-                            {service.icon}
-                        </div>
+                        <img
+                            src={service.icon}
+                            alt={service.label}
+                            className="h-12 w-12"
+                            loading="lazy"
+                        />
                         <p className="text-lg font-light text-[#7D5E19]">
                             {service.label}
                         </p>
@@ -147,34 +112,53 @@ export default function Home() {
                     </h3>
                     <div className="flex flex-col gap-4">
                         <div className="flex items-center gap-2">
-                            <FaMapMarkerAlt className="text-xl text-[#7D5E19]" />
+                            <FaMapMarkerAlt
+                                className="text-xl text-[#7D5E19]"
+                                aria-hidden="true"
+                            />
                             <p>
                                 6 Allée des Hortensias, <br />
                                 35310 Mordelles
                             </p>
                         </div>
                         <div className="flex items-center gap-2">
-                            <FaPhone className="text-xl text-[#7D5E19]" />
+                            <FaPhone
+                                className="text-xl text-[#7D5E19]"
+                                aria-hidden="true"
+                            />
                             <p>+33 6 65 32 12 77</p>
                         </div>
                         <div className="flex items-center gap-2">
-                            <FaEnvelope className="text-xl text-[#7D5E19]" />
+                            <FaEnvelope
+                                className="text-xl text-[#7D5E19]"
+                                aria-hidden="true"
+                            />
                             <p>stregabysoa@gmail.com</p>
                         </div>
                         <Link
                             to="https://www.instagram.com/stregabysoa/"
                             target="_blank"
+                            rel="noopener noreferrer"
                             className="flex items-center gap-2"
+                            aria-label="Visiter le profil Instagram"
                         >
-                            <FaInstagram className="text-xl  text-[#7D5E19]" />
+                            <FaInstagram
+                                className="text-xl text-[#7D5E19]"
+                                aria-hidden="true"
+                            />
                             <p>Instagram</p>
                         </Link>
                         <Link
                             to="https://www.facebook.com/profile.php?id=61563326601604"
                             target="_blank"
+                            rel="noopener noreferrer"
                             className="flex items-center gap-2"
+                            aria-label="Visiter le profil Facebook"
                         >
-                            <FaFacebook className="text-xl  text-[#7D5E19]" />
+                            <FaFacebook
+                                className="text-xl text-[#7D5E19]"
+                                aria-hidden="true"
+                            />
                             <p>Facebook</p>
                         </Link>
                     </div>

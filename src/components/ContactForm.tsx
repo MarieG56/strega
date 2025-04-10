@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, Input, Button, Typography } from "@material-tailwind/react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -6,7 +6,9 @@ import emailjs from "@emailjs/browser";
 
 const validationSchema = Yup.object().shape({
     name: Yup.string().required("Le nom est requis."),
-    email: Yup.string().email("Veuillez entrer une adresse email valide."),
+    email: Yup.string()
+        .email("Veuillez entrer une adresse email valide.")
+        .required("L'email est requis."),
     phoneNumber: Yup.string()
         .test(
             "is-valid-phone",
@@ -23,6 +25,8 @@ const validationSchema = Yup.object().shape({
 });
 
 export function ContactForm() {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
     const formik = useFormik({
         initialValues: {
             name: "",
@@ -31,25 +35,27 @@ export function ContactForm() {
             message: "",
         },
         validationSchema,
-        onSubmit: (values, { resetForm }) => {
-            emailjs
-                .send(
+        onSubmit: async (values, { resetForm }) => {
+            setIsSubmitting(true);
+            try {
+                const result = await emailjs.send(
                     import.meta.env.VITE_EMAILJS_SERVICE_ID,
                     import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
                     values,
                     import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-                )
-                .then(
-                    (result) => {
-                        console.log("Message envoyé !", result.text);
-                        alert("Votre message a été envoyé avec succès.");
-                        resetForm(); 
-                    },
-                    (error) => {
-                        console.error("Erreur :", error.text);
-                        alert("Une erreur est survenue. Veuillez réessayer.");
-                    }
                 );
+                alert("Votre message a été envoyé avec succès.");
+                resetForm();
+            } catch (error) {
+                if (error instanceof Error) {
+                    console.error("Error:", error.message);
+                } else {
+                    console.error("Unknown error:", error);
+                }
+                alert("Une erreur est survenue. Veuillez réessayer.");
+            } finally {
+                setIsSubmitting(false);
+            }
         },
     });
 
@@ -83,6 +89,7 @@ export function ContactForm() {
                         name="name"
                         size="lg"
                         placeholder="Nom et prénom"
+                        aria-label="Nom et prénom"
                         className="border border-[#7D5E19] rounded-[20px] p-3 md:w-120"
                         value={formik.values.name}
                         onChange={formik.handleChange}
@@ -110,6 +117,7 @@ export function ContactForm() {
                         type="email"
                         size="lg"
                         placeholder="exemple@mail.com"
+                        aria-label="Email"
                         className="border border-[#7D5E19] rounded-[20px] p-3 md:w-120"
                         value={formik.values.email}
                         onChange={formik.handleChange}
@@ -136,6 +144,7 @@ export function ContactForm() {
                         name="phoneNumber"
                         size="lg"
                         placeholder="06 00 00 00 00"
+                        aria-label="Numéro de téléphone"
                         className="border border-[#7D5E19] rounded-[20px] p-3 md:w-120"
                         value={formik.values.phoneNumber}
                         onChange={formik.handleChange}
@@ -165,6 +174,7 @@ export function ContactForm() {
                         type="text"
                         size="lg"
                         placeholder="Message"
+                        aria-label="Votre message"
                         className="border border-[#7D5E19] rounded-[20px] pb-30 pt-3 pl-3 mb-6 md:w-120"
                         value={formik.values.message}
                         onChange={formik.handleChange}
@@ -187,9 +197,12 @@ export function ContactForm() {
                 {/* Button */}
                 <Button
                     type="submit"
-                    className="mt-6 p-3 beige rounded-[20px] text-[#7D5E19] text-lg w-full cursor-pointer shadow-none hover:bg-[#f0e4c6]"
+                    disabled={isSubmitting}
+                    className={`mt-6 p-3 beige rounded-[20px] text-[#7D5E19] text-lg w-full cursor-pointer shadow-none ${
+                        isSubmitting ? "opacity-50 cursor-not-allowed" : ""
+                    } hover:bg-[#f0e4c6]`}
                 >
-                    Envoyer
+                    {isSubmitting ? "Envoi en cours..." : "Envoyer"}
                 </Button>
             </form>
         </Card>
