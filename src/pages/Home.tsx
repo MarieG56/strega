@@ -85,9 +85,6 @@ export default function Home() {
 
             {/* Text with background image */}
             <div className="mt-8 text-center poiret flex flex-col justify-center items-center">
-                {/* <h2 className="text-2xl md:text-5xl font-semibold md:pt-4">
-                    Découvrez Strega
-                </h2> */}
                 <div
                     className="relative p-8 inline-block md:hidden rounded-[20px] bg-cover bg-center mb-8"
                     style={{

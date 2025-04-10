@@ -4,9 +4,12 @@ import { BookingButton } from "../../components/Button";
 export default function Massage() {
     return (
         <div className="container md:flex md:flex-col py-8">
+            {/* Title */}
             <h1 className="text-2xl text-center font-medium mb-8 text-[#7D5E19] md:text-4xl md:py-8">
                 Soins
             </h1>
+
+            {/* Pictures + text */}
             <div className="flex mx-auto flex-col md:flex-row gap-15 items-center md:items-start md:pb-8 md:px-20">
                 <div className="flex flex-col md:flex-row gap-10 items-center md:items-start mb-6 md:mb-0 md:w-2/5">
                     <img
@@ -58,6 +61,8 @@ export default function Massage() {
                     </p>
                 </div>
             </div>
+
+            {/* List of services */}
             <div className="w-full bg-[rgba(245,236,229,0.5)] py-8 px-7 md:px-75 mb-10">
                 <ul className="text-sm md:text-base">
                     <li className="grid grid-cols-6 gap-8 pb-4">
@@ -74,7 +79,9 @@ export default function Massage() {
 
                     <li className="grid grid-cols-6 gap-8 pb-4">
                         <div className="col-span-5 flex flex-col">
-                            <div className="font-medium">Massage corps entier</div>
+                            <div className="font-medium">
+                                Massage corps entier
+                            </div>
                             <div className="font-light">45 minutes</div>
                         </div>
                         <div className="col-span-1 text-right font-medium">
@@ -85,7 +92,7 @@ export default function Massage() {
                     <li className="grid grid-cols-6 gap-8 pb-4">
                         <div className="col-span-5 flex flex-col">
                             <div className="font-medium">
-                            Massage corps entier
+                                Massage corps entier
                             </div>
                             <div className="font-light">60 minutes</div>
                         </div>
@@ -108,7 +115,9 @@ export default function Massage() {
 
                     <li className="grid grid-cols-6 gap-8 pb-4">
                         <div className="col-span-5 flex flex-col">
-                            <div className="font-medium">Soin du visage éclat</div>
+                            <div className="font-medium">
+                                Soin du visage éclat
+                            </div>
                             <div className="font-light">30 minutes</div>
                         </div>
                         <div className="col-span-1 text-right font-medium">

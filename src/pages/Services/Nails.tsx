@@ -4,9 +4,12 @@ import { BookingButton } from "../../components/Button";
 export default function Nails() {
     return (
         <div className="container md:flex md:flex-col py-8">
+            {/* Title */}
             <h1 className="text-2xl text-center font-medium mb-8 text-[#7D5E19] md:text-4xl md:py-8">
                 Ongles
             </h1>
+
+            {/* Pictures + text */}
             <div className="flex mx-auto flex-col md:flex-row gap-15 items-center md:items-start md:pb-8 md:px-30">
                 <div className="flex flex-col md:flex-row gap-10 items-center md:items-start mb-6 md:mb-0 md:w-2/5">
                     <img
@@ -25,17 +28,28 @@ export default function Nails() {
                         Qu’il s’agisse simplement de donner une
                         <span className="text-[#7D5E19]">forme</span> à vos
                         ongles, ou bien de donner vie à votre imagination en
-                        réalisant un <span className="text-[#7D5E19]">nail art audacieux</span>
+                        réalisant un{" "}
+                        <span className="text-[#7D5E19]">
+                            nail art audacieux
+                        </span>
                         , vous êtes au bon endroit.
                     </p>
                     <p>
-                        De la simple <span className="text-[#7D5E19]">manucure</span> pour embellir la main
-                        naturellement, en passant par la <span className="text-[#7D5E19]">pose de vernis</span> classique, jusqu’au <span className="text-[#7D5E19]">vernis semi-permanent</span>, sur les mains
-                        ou sur les pieds, voici autant d’options que je vous
-                        propose pour vous faire plaisir.
+                        De la simple{" "}
+                        <span className="text-[#7D5E19]">manucure</span> pour
+                        embellir la main naturellement, en passant par la{" "}
+                        <span className="text-[#7D5E19]">pose de vernis</span>{" "}
+                        classique, jusqu’au{" "}
+                        <span className="text-[#7D5E19]">
+                            vernis semi-permanent
+                        </span>
+                        , sur les mains ou sur les pieds, voici autant d’options
+                        que je vous propose pour vous faire plaisir.
                     </p>
                 </div>
             </div>
+
+            {/* List of services */}
             <div className="w-full bg-[rgba(245,236,229,0.5)] py-8 px-7 md:px-75 mb-10">
                 <ul className="text-sm md:text-base">
                     <li className="grid grid-cols-6 gap-8 pb-4">
@@ -70,7 +84,9 @@ export default function Nails() {
 
                     <li className="grid grid-cols-6 gap-8 pb-4">
                         <div className="col-span-5 flex flex-col">
-                            <div className="font-medium">Manucure et pose de vernis</div>
+                            <div className="font-medium">
+                                Manucure et pose de vernis
+                            </div>
                             <div className="font-light">50 minutes</div>
                         </div>
                         <div className="col-span-1 text-right font-medium">
@@ -80,7 +96,9 @@ export default function Nails() {
 
                     <li className="grid grid-cols-6 gap-8 pb-4">
                         <div className="col-span-5 flex flex-col">
-                            <div className="font-medium">Vernis semi-permanent</div>
+                            <div className="font-medium">
+                                Vernis semi-permanent
+                            </div>
                             <div className="font-light">35 minutes</div>
                         </div>
                         <div className="col-span-1 text-right font-medium">
@@ -90,7 +108,9 @@ export default function Nails() {
 
                     <li className="grid grid-cols-6 gap-8 pb-4">
                         <div className="col-span-5 flex flex-col">
-                            <div className="font-medium">Manucure et pose de vernis semi-permanent</div>
+                            <div className="font-medium">
+                                Manucure et pose de vernis semi-permanent
+                            </div>
                             <div className="font-light">1 heure 10 minutes</div>
                         </div>
                         <div className="col-span-1 text-right font-medium">
@@ -100,9 +120,7 @@ export default function Nails() {
 
                     <li className="grid grid-cols-6 gap-8 pb-4">
                         <div className="col-span-5 flex flex-col">
-                            <div className="font-medium">
-                                Dépose seule
-                            </div>
+                            <div className="font-medium">Dépose seule</div>
                             <div className="font-light">20 minutes</div>
                         </div>
                         <div className="col-span-1 text-right font-medium">
@@ -115,9 +133,7 @@ export default function Nails() {
                             <div className="font-medium">
                                 Dépose et manucure
                             </div>
-                            <div className="font-light">
-                                50 minutes
-                            </div>
+                            <div className="font-light">50 minutes</div>
                         </div>
                         <div className="col-span-1 text-right font-medium">
                             34€

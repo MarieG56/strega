@@ -16,7 +16,7 @@ export default function Header() {
         setMenuOpen(false); 
     };
 
-    const getLinkClass = (path) => {
+    const getLinkClass = (path: string) => {
         return location.pathname === path ? "text-base hover:underline font-bold" : "text-base hover:underline";
     };
 
@@ -86,7 +86,7 @@ export default function Header() {
             {/* Navbar Mobile */}
             {menuOpen && (
                 <nav
-                    className={`flex flex-col items-center gap-6 absolute top-full left-0 right-0 beige z-50 py-4 md:hidden`}
+                    className={`flex flex-col items-center border-t-1 border-[#7d5e19] gap-6 absolute top-full left-0 right-0 beige z-50 py-4 md:hidden`}
                 >
                     <Link to="/home" onClick={closeMenu} className="gold text-base hover:underline">
                         Accueil

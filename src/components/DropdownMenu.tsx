@@ -7,7 +7,7 @@ export default function DropdownMenu() {
     const [isOpen, setIsOpen] = useState(false);
     const location = useLocation();
 
-    const toggleMenu = () => setIsOpen((prev) => !prev); //Open the menu
+    const toggleMenu = () => setIsOpen((prev) => !prev); 
 
     const handleLinkClick = (e: React.MouseEvent) => {
         e.stopPropagation();

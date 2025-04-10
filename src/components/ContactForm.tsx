@@ -32,7 +32,6 @@ export function ContactForm() {
         },
         validationSchema,
         onSubmit: (values, { resetForm }) => {
-            // Envoi des données via EmailJS
             emailjs
                 .send(
                     import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -44,7 +43,7 @@ export function ContactForm() {
                     (result) => {
                         console.log("Message envoyé !", result.text);
                         alert("Votre message a été envoyé avec succès.");
-                        resetForm(); // Réinitialise le formulaire après envoi
+                        resetForm(); 
                     },
                     (error) => {
                         console.error("Erreur :", error.text);
@@ -72,7 +71,7 @@ export function ContactForm() {
                 className="mt-8 w-80 max-w-screen-lg sm:w-96 md:w-120"
             >
                 <div className="mb-1 flex flex-col gap-6">
-                    {/* Nom */}
+                    {/* Name */}
                     <Typography
                         variant="h6"
                         color="blue-gray"
@@ -125,7 +124,7 @@ export function ContactForm() {
                         </p>
                     )}
 
-                    {/* Numéro de téléphone */}
+                    {/* Phone Number */}
                     <Typography
                         variant="h6"
                         color="blue-gray"
@@ -185,7 +184,7 @@ export function ContactForm() {
                     )}
                 </div>
 
-                {/* Bouton Envoyer */}
+                {/* Button */}
                 <Button
                     type="submit"
                     className="mt-6 p-3 beige rounded-[20px] text-[#7D5E19] text-lg w-full cursor-pointer shadow-none hover:bg-[#f0e4c6]"

@@ -4,9 +4,12 @@ import { BookingButton } from "../../components/Button";
 export default function Makeup() {
     return (
         <div className="container md:flex md:flex-col py-8">
+            {/* Title */}
             <h1 className="text-2xl text-center font-medium mb-8 text-[#7D5E19] md:text-4xl md:py-8">
                 Maquillage
             </h1>
+
+            {/* Pictures + text */}
             <div className="flex mx-auto flex-col md:flex-row gap-15 items-center md:items-start md:pb-8 md:px-30">
                 <div className="flex flex-col md:flex-row gap-10 items-center md:items-start mb-6 md:mb-0 md:w-2/5">
                     <img
@@ -48,6 +51,8 @@ export default function Makeup() {
                     </p>
                 </div>
             </div>
+
+            {/* List of services */}
             <div className="w-full bg-[rgba(245,236,229,0.5)] py-8 px-7 md:px-75 mb-10">
                 <ul className="text-sm md:text-base">
                     <li className="grid grid-cols-6 gap-8 pb-4">

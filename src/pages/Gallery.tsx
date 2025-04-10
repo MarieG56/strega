@@ -3,7 +3,7 @@ import React from "react";
 export default function Gallery() {
     return (
         <section className="items-center gap-8 py-8 md:pt-10 md:pb-4 flex flex-col md:gap-15">
-            {/* Première rangée d’images */}
+            {/* First row */}
             <div className="flex flex-col gap-8 md:grid md:grid-cols-3 md:auto-rows-[180px] md:gap-15">
                 <img
                     src="/assets/nails3.jpg"
@@ -27,7 +27,7 @@ export default function Gallery() {
                 />
             </div>
 
-            {/* Deuxième rangée d’images */}
+            {/* Second row */}
             <div className="flex flex-col gap-8 md:grid md:grid-cols-3 md:auto-rows-[180px] md:gap-15">
                 <img
                     src="/assets/beautysalon2.jpg"
