@@ -24,7 +24,7 @@ const validationSchema = Yup.object().shape({
     message: Yup.string().required("Le message est requis."),
 });
 
-export function ContactForm() {
+export default function ContactForm() {
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const formik = useFormik({
@@ -64,11 +64,17 @@ export function ContactForm() {
             className="flex flex-col items-center mt-8 md:mt-10"
             color="transparent"
             shadow={false}
+            placeholder=""
+            onPointerEnterCapture={() => {}}
+            onPointerLeaveCapture={() => {}}
         >
             <Typography
                 variant="h4"
                 color="blue-gray"
                 className="text-2xl md:text-4xl font-semibold text-[#7D5E19]"
+                placeholder=""
+                onPointerEnterCapture={() => {}}
+                onPointerLeaveCapture={() => {}}
             >
                 Ecrivez-moi
             </Typography>
@@ -82,6 +88,9 @@ export function ContactForm() {
                         variant="h6"
                         color="blue-gray"
                         className="-mb-4 text-black text-sm font-normal"
+                        placeholder=""
+                        onPointerEnterCapture={() => {}}
+                        onPointerLeaveCapture={() => {}}
                     >
                         Nom et prénom
                     </Typography>
@@ -97,6 +106,9 @@ export function ContactForm() {
                         error={
                             formik.touched.name && Boolean(formik.errors.name)
                         }
+                        crossOrigin="anonymous"
+                        onPointerEnterCapture={() => {}}
+                        onPointerLeaveCapture={() => {}}
                     />
                     {formik.touched.name && formik.errors.name && (
                         <p className="text-red-500 text-sm">
@@ -109,6 +121,9 @@ export function ContactForm() {
                         variant="h6"
                         color="blue-gray"
                         className="-mb-4 text-black text-sm font-normal"
+                        placeholder=""
+                        onPointerEnterCapture={() => {}}
+                        onPointerLeaveCapture={() => {}}
                     >
                         Email
                     </Typography>
@@ -125,6 +140,9 @@ export function ContactForm() {
                         error={
                             formik.touched.email && Boolean(formik.errors.email)
                         }
+                        crossOrigin="anonymous"
+                        onPointerEnterCapture={() => {}}
+                        onPointerLeaveCapture={() => {}}
                     />
                     {formik.touched.email && formik.errors.email && (
                         <p className="text-red-500 text-sm">
@@ -137,6 +155,9 @@ export function ContactForm() {
                         variant="h6"
                         color="blue-gray"
                         className="-mb-4 text-black text-sm font-normal"
+                        placeholder=""
+                        onPointerEnterCapture={() => {}}
+                        onPointerLeaveCapture={() => {}}
                     >
                         Numéro de téléphone
                     </Typography>
@@ -153,6 +174,9 @@ export function ContactForm() {
                             formik.touched.phoneNumber &&
                             Boolean(formik.errors.phoneNumber)
                         }
+                        crossOrigin="anonymous"
+                        onPointerEnterCapture={() => {}}
+                        onPointerLeaveCapture={() => {}}
                     />
                     {formik.touched.phoneNumber &&
                         formik.errors.phoneNumber && (
@@ -166,6 +190,9 @@ export function ContactForm() {
                         variant="h6"
                         color="blue-gray"
                         className="-mb-4 text-black text-sm font-normal"
+                        placeholder=""
+                        onPointerEnterCapture={() => {}}
+                        onPointerLeaveCapture={() => {}}
                     >
                         Votre message
                     </Typography>
@@ -186,6 +213,9 @@ export function ContactForm() {
                             formik.touched.message &&
                             Boolean(formik.errors.message)
                         }
+                        crossOrigin="anonymous"
+                        onPointerEnterCapture={() => {}}
+                        onPointerLeaveCapture={() => {}}
                     />
                     {formik.touched.message && formik.errors.message && (
                         <p className="text-red-500 text-sm">
@@ -201,6 +231,9 @@ export function ContactForm() {
                     className={`mt-6 p-3 beige rounded-[20px] text-[#7D5E19] text-lg w-full cursor-pointer shadow-none ${
                         isSubmitting ? "opacity-50 cursor-not-allowed" : ""
                     } hover:bg-[#f0e4c6]`}
+                    placeholder=""
+                    onPointerEnterCapture={() => {}}
+                    onPointerLeaveCapture={() => {}}
                 >
                     {isSubmitting ? "Envoi en cours..." : "Envoyer"}
                 </Button>

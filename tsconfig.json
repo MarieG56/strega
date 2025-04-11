@@ -14,5 +14,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true
   },
-  "include": ["src", "vite-env.d.ts", "node_modules/react-icons/**/*"]
+  "exclude": ["cypress.config.ts", "**/cypress.config.js"],
+  "include": ["src", "vite-env.d.ts", "node_modules/react-icons/**/*", "cypress/test/contactForm.cy.tsx"]
 }

@@ -27,29 +27,32 @@ const services = [
 
 export default function Waxing() {
     return (
-        <div className="container md:flex md:flex-col py-8">
+        <div className="w-full md:flex md:flex-col py-8">
             {/* Title */}
             <h1 className="text-2xl text-center font-medium mb-8 text-[#7D5E19] md:text-4xl md:py-8">
                 Epilation
             </h1>
 
             {/* Pictures + text */}
-            <section className="flex mx-auto flex-col md:flex-row gap-15 items-center md:items-start md:pb-8 md:px-30">
-                <div className="flex flex-col md:flex-row gap-10 items-center md:items-start mb-6 md:mb-0 md:w-2/5">
+            <section className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-start md:pb-8 md:px-30 mb-10">
+                {/* Pictures */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 justify-center items-center">
                     <img
-                        src="/public/assets/wax1.jpg"
+                        src="/assets/wax1.jpg"
                         alt="Cire traditionnelle"
-                        className="w-7/10 mb-4 rounded-[20px] md:w-64 md:h-90 md:object-cover"
+                        className="w-7/10 rounded-[20px] md:w-64 md:h-90 md:object-cover mx-auto"
                         loading="lazy"
                     />
                     <img
-                        src="/public/assets/wax2.jpg"
+                        src="/assets/wax2.jpg"
                         alt="Cire au sucre"
-                        className="rounded-[20px] hidden md:block md:w-64 md:h-90 md:object-cover"
+                        className="rounded-[20px] md:w-64 md:h-90 object-cover hidden md:block"
                         loading="lazy"
                     />
                 </div>
-                <article className="md:text-left md:w-3/5 hidden md:flex md:flex-col md:gap-4 pl-15 my-auto text-xl font-medium">
+
+                {/* Text */}
+                <article className="hidden md:grid md:gap-4 md:text-left text-lg font-medium my-auto">
                     <p>
                         Je travaille avec{" "}
                         <span className="text-[#7D5E19]">
@@ -62,7 +65,7 @@ export default function Waxing() {
                         <span className="text-[#7D5E19]">traditionnelle</span>,
                         utilisée pour les zones sensibles. Elle est plus chaude
                         que les autres cires et permet donc de dilater les pores,
-                        ce qui facilite l’arrachage du poil et rend l’
+                        ce qui facilite l’arrachage du poil et rend l’{" "}
                         <span className="text-[#7D5E19]">
                             épilation plus douce et plus durable
                         </span>

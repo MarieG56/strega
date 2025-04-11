@@ -16,6 +16,13 @@ export default defineConfig({
             ext: ".br", 
         }),
     ],
+    test: {
+        environment: 'jsdom', 
+        globals: true, 
+        coverage: {
+          reporter: ['text', 'json', 'html'], 
+        },
+      },
     assetsInclude: [
         "**/*.jpg",
         "**/*.jpeg",

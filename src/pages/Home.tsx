@@ -56,25 +56,55 @@ export default function Home() {
             </div>
 
             {/* Text with background image */}
-            <div className="mt-8 text-center poiret flex flex-col justify-center items-center">
+            <div className="text-center poiret flex flex-col justify-center items-center">
                 <div
-                    className="relative p-8 inline-block md:hidden rounded-[20px] bg-cover bg-center mb-8"
+                    className="relative inline-block md:hidden rounded-[20px]"
                     style={{
                         backgroundImage: "url(/assets/paintbrush_mobile.svg)",
+                        backgroundSize: "80%",
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "center",
+                        width: "100%",
+                        height: "260px",
                     }}
                 >
-                    <p className="text-lg text-black">
+                    <p
+                        className="text-xl font-medium text-black"
+                        style={{
+                            position: "absolute", // Positionne le texte sur l'image
+                            top: "50%", // Centre verticalement
+                            left: "50%", // Centre horizontalement
+                            transform: "translate(-50%, -50%)", // Ajuste le centrage parfait
+                            textAlign: "center",
+                            width: "70%", // Centre le texte horizontalement
+                        }}
+                    >
                         Un lieu unique et chaleureux pour prendre soin de soi
                         avec douceur et bienveillance
                     </p>
                 </div>
+
                 <div
-                    className="hidden md:flex justify-center text-center rounded-[20px] my-10"
+                    className="hidden md:flex justify-center text-center rounded-[20px]"
                     style={{
+                        position: "relative",
                         backgroundImage: "url(/assets/paintbrush_desktop.svg)",
+                        backgroundSize: "contain",
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "center",
+                        width: "100%",
+                        height: "300px",
                     }}
                 >
-                    <p className="text-3xl max-w-[800px] text-black py-8">
+                    <p
+                        className="text-3xl max-w-[800px] text-black py-4"
+                        style={{
+                            position: "absolute",
+                            top: "50%",
+                            left: "50%",
+                            transform: "translate(-50%, -50%)",
+                        }}
+                    >
                         Un lieu unique et chaleureux pour prendre soin de soi
                         avec douceur et bienveillance
                     </p>

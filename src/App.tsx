@@ -11,9 +11,11 @@ import React from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import "./App.css";
-import { FaServicestack } from "react-icons/fa6";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
+import LegalInformation from "./pages/LegalInformation";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import CookieBanner from "./components/CookieBanner";
 
 function App() {
     return (
@@ -33,10 +35,16 @@ function App() {
                     <Route path="massage" element={<Massage />} />
                     <Route path="gallery" element={<Gallery />} />
                     <Route path="contact" element={<Contact />} />
+                    <Route
+                        path="legal-information"
+                        element={<LegalInformation />}
+                    />
+                    <Route path="privacy-policy" element={<PrivacyPolicy />} />
                     {/* <Route path="*" element={<NotFoundPage />} /> */}
                 </Routes>
             </main>
 
+            <CookieBanner />
             <Footer />
         </div>
     );

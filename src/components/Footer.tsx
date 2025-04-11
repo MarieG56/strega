@@ -23,13 +23,13 @@ export default function Footer() {
                 {/* Mandatory links */}
                 <div className="flex flex-col md:flex-row gap-1 md:gap-4">
                     <Link
-                        to="/mentions-legales"
+                        to="/legal-information"
                         className="text-[#7D5E19] hover:underline"
                     >
                         Mentions légales
                     </Link>
                     <Link
-                        to="/politique-confidentialite"
+                        to="/privacy-policy"
                         className="text-[#7D5E19] hover:underline"
                     >
                         Politique de confidentialité

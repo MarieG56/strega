@@ -37,7 +37,7 @@ export default function Header() {
     ];
 
     return (
-        <header className="px-5 beige h-[12vh] md:h-[15vh] relative">
+        <header className="px-5 beige h-[12vh] md:h-[15vh] sticky top-0 z-50 md:static">
             {/* Mobile layout: Grid */}
             <div className="grid grid-cols-[1fr_auto_1fr] items-center md:hidden h-full">
                 {/* Logo */}

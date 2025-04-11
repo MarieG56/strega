@@ -21,6 +21,9 @@ export function BookingButton() {
             "
             onClick={() => window.open("https://reservationbeaute.fr/institut-strega-35310", "_blank")}
             aria-label="Prendre rendez-vous"
+            placeholder=""
+            onPointerEnterCapture={() => {}}
+            onPointerLeaveCapture={() => {}}
         >
             Prendre rendez-vous
         </Button>
